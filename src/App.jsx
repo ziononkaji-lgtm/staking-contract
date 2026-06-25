@@ -189,25 +189,26 @@ function StepTypeSelect({ form, set, onNext }) {
       <Card>
         <CardTitle icon="🃏" title="どのタイプの契約ですか？" />
         <p className="text-xs text-slate-500">タップすると説明が表示されます</p>
-        <div className="space-y-2">
+        <div className="flex flex-col gap-2">
           {CONTRACT_TYPES.map(t => {
             const isSelected = form.contractType === t.id;
             return (
               <button key={t.id} onClick={() => set("contractType", t.id)}
-                className={`w-full text-left rounded-xl border-2 transition-all overflow-hidden ${isSelected ? "border-emerald-400" : "border-slate-100 hover:border-slate-200"}`}>
-                <div className={`flex items-center gap-3 px-4 py-3 ${isSelected ? "bg-emerald-50" : "bg-slate-50"}`}>
-                  <span className="text-2xl">{t.emoji}</span>
-                  <div className="flex-1">
-                    <div className="font-bold text-slate-800 text-sm">{t.label}</div>
-                    <div className="text-xs text-slate-500">{t.desc}</div>
+                style={{ display: "block", width: "100%", textAlign: "left" }}
+                className={`rounded-xl border-2 transition-all overflow-hidden ${isSelected ? "border-emerald-400" : "border-slate-100"}`}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: isSelected ? "#ecfdf5" : "#f8fafc" }}>
+                  <span style={{ fontSize: 24, flexShrink: 0 }}>{t.emoji}</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontWeight: "bold", color: "#1e293b", fontSize: 14 }}>{t.label}</div>
+                    <div style={{ color: "#64748b", fontSize: 12, marginTop: 2 }}>{t.desc}</div>
                   </div>
-                  <span className={`text-lg transition-transform ${isSelected ? "rotate-90" : ""}`}>›</span>
+                  <span style={{ color: "#94a3b8", fontSize: 18, flexShrink: 0, transform: isSelected ? "rotate(90deg)" : "none", transition: "transform 0.2s" }}>›</span>
                 </div>
                 {isSelected && (
-                  <div className="px-4 py-3 bg-white border-t border-emerald-100">
-                    <p className="text-sm text-slate-700 whitespace-pre-line leading-relaxed mb-2">{t.explain}</p>
-                    <div className="bg-emerald-50 rounded-lg px-3 py-2">
-                      <p className="text-xs text-emerald-700 font-medium">{t.example}</p>
+                  <div style={{ padding: "12px 16px", background: "#ffffff", borderTop: "1px solid #d1fae5" }}>
+                    <p style={{ fontSize: 13, color: "#334155", lineHeight: 1.8, whiteSpace: "pre-line", marginBottom: 8 }}>{t.explain}</p>
+                    <div style={{ background: "#ecfdf5", borderRadius: 8, padding: "8px 12px" }}>
+                      <p style={{ fontSize: 12, color: "#065f46", fontWeight: 500 }}>{t.example}</p>
                     </div>
                   </div>
                 )}
