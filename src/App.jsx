@@ -717,7 +717,7 @@ export default function App() {
           <div className="space-y-4">
             <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
               <h2 className="text-base font-bold text-slate-800 mb-4">📄 契約書プレビュー</h2>
-              <pre style={{ fontFamily: "sans-serif", fontSize: 13, lineHeight: 1.9, whiteSpace: "pre-wrap", color: "#1e293b" }}>
+              <pre style={{ fontFamily: "'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif", fontSize: 13, lineHeight: 2, whiteSpace: "pre-wrap", color: "#1e293b", textAlign: "left", wordBreak: "break-all", background: "#f8fafc", borderRadius: 12, padding: 16 }}>
                 {contractText}
               </pre>
             </div>
