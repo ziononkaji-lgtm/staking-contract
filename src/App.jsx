@@ -97,9 +97,16 @@ function CardTitle({ icon, title }) {
 
 function NextBtn({ onClick, label = "次へ →" }) {
   return (
-    <button onClick={onClick} style={{ background: "linear-gradient(135deg, #10b981, #059669)" }}
-      className="w-full py-3 rounded-xl text-white font-bold text-sm shadow hover:opacity-90 transition-opacity mt-2">
+    <button onClick={onClick} style={{ background: "linear-gradient(135deg, #10b981, #059669)", width: "100%", padding: "18px 0", borderRadius: 16, color: "#fff", fontWeight: "bold", fontSize: 17, boxShadow: "0 4px 12px rgba(16,185,129,0.4)", border: "none", cursor: "pointer", marginTop: 8 }}>
       {label}
+    </button>
+  );
+}
+
+function BackBtn({ onClick }) {
+  return (
+    <button onClick={onClick} style={{ width: "100%", padding: "14px 0", borderRadius: 16, color: "#64748b", fontSize: 15, fontWeight: "600", background: "#f1f5f9", border: "none", cursor: "pointer", marginTop: 4 }}>
+      ← 前に戻る
     </button>
   );
 }
@@ -599,13 +606,7 @@ function StepOther({ form, set, onGenerate, onBack }) {
   );
 }
 
-function BackBtn({ onClick }) {
-  return (
-    <button onClick={onClick} className="w-full py-2 rounded-xl text-slate-400 text-sm hover:text-slate-600 transition-colors">
-      ← 前に戻る
-    </button>
-  );
-}
+
 
 // ─── ステップ順序ビルダー ─────────────────────────────────
 function buildStepKeys(typeId) {
